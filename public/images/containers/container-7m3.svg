@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Container skip mare de 7 metri cubi">
+  <defs>
+    <linearGradient id="body7" x1="70" x2="568" y1="132" y2="318" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffdb4f"/>
+      <stop offset="0.48" stop-color="#f2b705"/>
+      <stop offset="1" stop-color="#ac7900"/>
+    </linearGradient>
+    <linearGradient id="dark7" x1="74" x2="578" y1="116" y2="146" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#303030"/>
+      <stop offset="1" stop-color="#080808"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" fill="none"/>
+  <ellipse cx="322" cy="350" rx="270" ry="28" fill="#080808" opacity=".13"/>
+  <path d="M78 138h494l-50 176H118z" fill="url(#body7)" stroke="#080808" stroke-width="17" stroke-linejoin="round"/>
+  <path d="M48 104h552l-30 50H76z" fill="url(#dark7)" stroke="#080808" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M126 188h390" stroke="#080808" stroke-width="14" stroke-linecap="round" opacity=".85"/>
+  <path d="M170 315h314" stroke="#080808" stroke-width="15" stroke-linecap="round"/>
+  <path d="M146 168l-34 126M246 168l-24 136M348 168l-28 136M450 168l-38 130M528 168l-44 120" stroke="#080808" stroke-width="10" opacity=".29"/>
+  <path d="M218 315l-20 42h70l18-42M398 315l-18 42h72l22-42" fill="#222" stroke="#080808" stroke-width="12" stroke-linejoin="round"/>
+</svg>

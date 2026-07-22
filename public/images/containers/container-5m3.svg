@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Container skip mediu de 5 metri cubi">
+  <defs>
+    <linearGradient id="body5" x1="92" x2="542" y1="145" y2="314" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd640"/>
+      <stop offset="0.5" stop-color="#f2b705"/>
+      <stop offset="1" stop-color="#bd8800"/>
+    </linearGradient>
+    <linearGradient id="side5" x1="110" x2="500" y1="210" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff0a0" stop-opacity=".42"/>
+      <stop offset="1" stop-color="#080808" stop-opacity=".08"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" fill="none"/>
+  <ellipse cx="320" cy="348" rx="244" ry="26" fill="#080808" opacity=".13"/>
+  <path d="M98 144h444l-45 166H150z" fill="url(#body5)" stroke="#080808" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M76 112h492l-28 46H102z" fill="#222" stroke="#080808" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M150 166h348l-35 124H182z" fill="url(#side5)"/>
+  <path d="M144 194h350" stroke="#080808" stroke-width="13" stroke-linecap="round" opacity=".84"/>
+  <path d="M192 310h278" stroke="#080808" stroke-width="14" stroke-linecap="round"/>
+  <path d="M198 174l-28 114M292 174l-18 124M390 174l-28 118M474 174l-35 112" stroke="#080808" stroke-width="10" opacity=".28"/>
+  <path d="M226 310l-18 40h62l16-40M384 310l-16 40h64l20-40" fill="#222" stroke="#080808" stroke-width="12" stroke-linejoin="round"/>
+</svg>

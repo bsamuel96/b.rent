@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Container skip de santier de 10 metri cubi">
+  <defs>
+    <linearGradient id="body10" x1="52" x2="590" y1="126" y2="324" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe063"/>
+      <stop offset="0.42" stop-color="#f2b705"/>
+      <stop offset="1" stop-color="#9f7000"/>
+    </linearGradient>
+    <linearGradient id="rim10" x1="36" x2="612" y1="94" y2="152" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#343434"/>
+      <stop offset="1" stop-color="#080808"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" fill="none"/>
+  <ellipse cx="322" cy="354" rx="292" ry="30" fill="#080808" opacity=".14"/>
+  <path d="M58 132h536l-54 188H96z" fill="url(#body10)" stroke="#080808" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M28 96h588l-28 52H56z" fill="url(#rim10)" stroke="#080808" stroke-width="15" stroke-linejoin="round"/>
+  <path d="M104 186h426" stroke="#080808" stroke-width="15" stroke-linecap="round" opacity=".86"/>
+  <path d="M150 320h350" stroke="#080808" stroke-width="16" stroke-linecap="round"/>
+  <path d="M126 162L90 304M232 162l-28 148M338 162l-32 148M444 162l-42 142M536 162l-50 130" stroke="#080808" stroke-width="11" opacity=".3"/>
+  <path d="M204 320l-22 44h76l20-44M404 320l-20 44h78l24-44" fill="#222" stroke="#080808" stroke-width="13" stroke-linejoin="round"/>
+</svg>

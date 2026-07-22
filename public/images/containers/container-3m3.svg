@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Container skip compact de 3 metri cubi">
+  <defs>
+    <linearGradient id="body3" x1="120" x2="500" y1="150" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd33d"/>
+      <stop offset="0.48" stop-color="#f2b705"/>
+      <stop offset="1" stop-color="#c99100"/>
+    </linearGradient>
+    <linearGradient id="rim3" x1="110" x2="520" y1="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2b2b2b"/>
+      <stop offset="1" stop-color="#080808"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" fill="none"/>
+  <ellipse cx="316" cy="342" rx="212" ry="24" fill="#080808" opacity=".13"/>
+  <path d="M132 154h356l-40 154H180z" fill="url(#body3)" stroke="#080808" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M108 122h410l-30 44H136z" fill="url(#rim3)" stroke="#080808" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M179 196h268" stroke="#080808" stroke-width="13" stroke-linecap="round" opacity=".82"/>
+  <path d="M212 308h226" stroke="#080808" stroke-width="14" stroke-linecap="round"/>
+  <path d="M215 180l-24 104M306 180l-12 120M397 180l-24 114" stroke="#080808" stroke-width="10" opacity=".28"/>
+  <path d="M236 308l-18 40h58l14-40M370 308l-14 40h58l18-40" fill="#222" stroke="#080808" stroke-width="12" stroke-linejoin="round"/>
+</svg>
