@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Container skip mediu de 5 metri cubi">
   <defs>
     <linearGradient id="body5" x1="92" x2="542" y1="145" y2="314" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffd640"/>
-      <stop offset="0.5" stop-color="#f2b705"/>
-      <stop offset="1" stop-color="#bd8800"/>
+      <stop stop-color="#7bb373"/>
+      <stop offset="0.5" stop-color="#4f8f46"/>
+      <stop offset="1" stop-color="#35692f"/>
     </linearGradient>
     <linearGradient id="side5" x1="110" x2="500" y1="210" y2="300" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#fff0a0" stop-opacity=".42"/>
+      <stop stop-color="#c8ddc4" stop-opacity=".42"/>
       <stop offset="1" stop-color="#080808" stop-opacity=".08"/>
     </linearGradient>
   </defs>

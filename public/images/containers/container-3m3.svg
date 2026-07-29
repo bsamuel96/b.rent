@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Container skip compact de 3 metri cubi">
   <defs>
     <linearGradient id="body3" x1="120" x2="500" y1="150" y2="300" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffd33d"/>
-      <stop offset="0.48" stop-color="#f2b705"/>
-      <stop offset="1" stop-color="#c99100"/>
+      <stop stop-color="#78b06f"/>
+      <stop offset="0.48" stop-color="#4f8f46"/>
+      <stop offset="1" stop-color="#386e31"/>
     </linearGradient>
     <linearGradient id="rim3" x1="110" x2="520" y1="120" y2="120" gradientUnits="userSpaceOnUse">
       <stop stop-color="#2b2b2b"/>

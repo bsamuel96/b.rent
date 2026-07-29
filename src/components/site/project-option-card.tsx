@@ -1,5 +1,4 @@
 import type * as React from "react";
-import { CheckCircle2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import { RadioGroupItem } from "@/components/ui/radio-group";
@@ -15,6 +14,7 @@ interface ProjectOptionCardProps {
   imageAlt?: string;
   selected: boolean;
   recommended?: boolean;
+  compact?: boolean;
 }
 
 export function ProjectOptionCard({
@@ -27,6 +27,7 @@ export function ProjectOptionCard({
   imageAlt,
   selected,
   recommended = false,
+  compact = false,
 }: ProjectOptionCardProps) {
   const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -36,7 +37,7 @@ export function ProjectOptionCard({
 
   return (
     <div
-      className="touch-glow rounded-lg"
+      className="touch-glow h-full rounded-lg"
       data-selected={selected}
       onPointerMove={handlePointerMove}
     >
@@ -44,34 +45,74 @@ export function ProjectOptionCard({
       <Label
         htmlFor={id}
         className={cn(
-          "flex min-h-[8.5rem] cursor-pointer flex-col justify-between gap-4 rounded-lg border bg-white p-4 shadow-sm transition-all duration-200 peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 sm:min-h-[9rem]",
-          selected ? "border-brand-yellow shadow-yellow-glow" : "border-border hover:border-brand-yellow/70",
+          "relative flex h-full min-h-[8.5rem] cursor-pointer flex-col justify-between gap-4 overflow-hidden rounded-lg border p-4 shadow-sm transition-all duration-200 peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2 sm:min-h-[9rem]",
+          selected
+            ? "border-2 border-brand-green bg-[#d8e8d5] text-foreground shadow-green-glow"
+            : "border-border bg-white hover:border-brand-green/70",
+          compact && "lg:min-h-0 lg:gap-2 lg:p-3",
         )}
       >
+        {recommended ? (
+          <Badge
+            className={cn(
+              "absolute right-3 top-3 z-10 shadow-sm",
+              compact && "lg:right-2 lg:top-2",
+            )}
+          >
+            Recomandat
+          </Badge>
+        ) : null}
+
         {imageSrc ? (
-          <span className="flex aspect-[4/3] items-center justify-center rounded-md border border-black/10 bg-gradient-to-br from-white to-brand-offwhite p-2">
-            <img src={imageSrc} alt={imageAlt ?? ""} className="h-full w-full object-contain" loading="lazy" />
+          <span
+            className={cn(
+              "flex aspect-[4/3] items-center justify-center rounded-md border p-2 transition-colors",
+              selected
+                ? "border-brand-green/35 bg-white/45"
+                : "border-black/10 bg-gradient-to-br from-white to-brand-offwhite",
+              compact && "lg:aspect-[16/9] lg:p-1",
+            )}
+          >
+            <img
+              src={imageSrc}
+              alt={imageAlt ?? ""}
+              className="h-full w-full scale-110 object-contain"
+              loading="lazy"
+            />
           </span>
         ) : null}
-        <span className="flex items-start justify-between gap-3">
-          <span>
-            <span className="block font-display text-3xl font-extrabold leading-none tracking-normal">
-              {title}
+        <span>
+          <span
+            className={cn(
+              "block font-display text-3xl font-extrabold leading-none tracking-normal",
+              compact && "lg:text-2xl",
+            )}
+          >
+            {title}
+          </span>
+          {description ? (
+            <span
+              className={cn(
+                "mt-2 block text-sm font-medium leading-5",
+                selected ? "text-brand-charcoal/75" : "text-muted-foreground",
+                compact && "lg:mt-1 lg:text-xs lg:leading-4",
+              )}
+            >
+              {description}
             </span>
-            {description ? (
-              <span className="mt-2 block text-sm font-medium leading-5 text-muted-foreground">
-                {description}
-              </span>
-            ) : null}
-          </span>
-          <span className={cn("mt-1 text-brand-yellow transition-opacity", selected ? "opacity-100" : "opacity-0")}>
-            <CheckCircle2 className="h-5 w-5" aria-hidden="true" />
-          </span>
+          ) : null}
         </span>
-        {recommended || meta ? (
+        {meta ? (
           <span className="flex flex-wrap items-center gap-2">
-            <Badge variant={recommended ? "default" : "muted"}>{recommended ? "Recomandat" : meta}</Badge>
-            {recommended && meta ? <span className="text-xs font-semibold text-muted-foreground">{meta}</span> : null}
+            <Badge
+              variant="muted"
+              className={cn(
+                selected && "border-brand-green/20 bg-white/55 text-brand-charcoal",
+                compact && "lg:px-2 lg:py-0 lg:text-[10px]",
+              )}
+            >
+              {meta}
+            </Badge>
           </span>
         ) : null}
       </Label>

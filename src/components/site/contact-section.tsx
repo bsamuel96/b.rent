@@ -1,9 +1,12 @@
-import { Clock, Mail, MapPin, Phone, type LucideIcon } from "lucide-react";
-import { BrandLogo } from "@/components/site/brand-logo";
-import { ContactActions } from "@/components/site/contact-actions";
+import { MessageCircle, PhoneCall } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import type { EstimatorSelection } from "@/data/container-options";
-import { createMailtoHref, createTelHref, selectionToContactSelection } from "@/lib/contact-links";
+import {
+  createTelHref,
+  createWhatsAppHref,
+  selectionToContactSelection,
+} from "@/lib/contact-links";
 
 interface ContactSectionProps {
   selection: EstimatorSelection;
@@ -12,69 +15,74 @@ interface ContactSectionProps {
 
 export function ContactSection({ selection, onCallback }: ContactSectionProps) {
   const telHref = createTelHref(siteConfig.contact.phoneE164);
-  const mailtoHref = createMailtoHref(siteConfig.contact.email, selectionToContactSelection(selection));
+  const whatsappHref = createWhatsAppHref(
+    siteConfig.contact.whatsappE164,
+    selectionToContactSelection(selection),
+  );
 
   return (
-    <section id="contact" className="scroll-mt-20 bg-brand-black py-14 text-white sm:py-20">
-      <div className="container">
-        <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-end">
+    <section id="contact" className="scroll-mt-20 bg-brand-green py-8 text-white sm:py-10">
+      <div className="container grid gap-7 lg:grid-cols-[1fr_auto_auto] lg:items-center lg:gap-6">
+        <div className="flex items-center gap-5">
+          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-white text-brand-green shadow-green-glow sm:h-20 sm:w-20">
+            <PhoneCall className="h-8 w-8 sm:h-9 sm:w-9" aria-hidden />
+          </span>
           <div>
-            <BrandLogo variant="dark" className="mb-8 max-w-[8.5rem]" />
-            <h2 className="text-balance font-display text-5xl font-black uppercase leading-[0.92] sm:text-7xl">
-              Ai o lucrare grea?
+            <h2 className="font-display text-3xl font-black uppercase leading-none sm:text-4xl">
+              Ai nevoie de ajutor?
             </h2>
-            <p className="mt-5 max-w-2xl text-base leading-7 text-white/[0.72] sm:text-lg">
-              Spune-ne ce ai de făcut și stabilim împreună containerul potrivit.
+            <p className="mt-2 text-sm font-medium text-white/85 sm:text-base">
+              Sună-ne acum sau scrie-ne pe WhatsApp.
             </p>
-            <ContactActions selection={selection} onCallback={onCallback} className="mt-8" />
-          </div>
-
-          <div className="grid gap-3 rounded-lg border border-white/[0.14] bg-white/[0.06] p-5">
-            <ContactLine icon={Phone} label="Telefon">
-              {telHref && siteConfig.contact.phoneDisplay ? (
-                <a href={telHref} className="font-semibold text-white underline-offset-4 hover:underline">
-                  {siteConfig.contact.phoneDisplay}
-                </a>
-              ) : (
-                <span>{siteConfig.placeholders.phone}</span>
-              )}
-            </ContactLine>
-            <ContactLine icon={Mail} label="Email">
-              {mailtoHref && siteConfig.contact.email ? (
-                <a href={mailtoHref} className="font-semibold text-white underline-offset-4 hover:underline">
-                  {siteConfig.contact.email}
-                </a>
-              ) : (
-                <span>{siteConfig.placeholders.email}</span>
-              )}
-            </ContactLine>
-            <ContactLine icon={MapPin} label="Arie de livrare">
-              <span>{siteConfig.contact.serviceArea ?? siteConfig.placeholders.serviceArea}</span>
-            </ContactLine>
-            <ContactLine icon={Clock} label="Program">
-              <span>{siteConfig.contact.businessHours ?? siteConfig.placeholders.businessHours}</span>
-            </ContactLine>
           </div>
         </div>
+
+        {telHref && siteConfig.contact.phoneDisplay ? (
+          <Button asChild variant="dark" size="lg" className="min-w-64 border border-white/10">
+            <a href={telHref}>
+              <PhoneCall />
+              {siteConfig.contact.phoneDisplay}
+            </a>
+          </Button>
+        ) : (
+          <Button
+            type="button"
+            variant="dark"
+            size="lg"
+            onClick={onCallback}
+            className="min-w-64 border border-white/10"
+          >
+            <PhoneCall />
+            Vreau să fiu sunat
+          </Button>
+        )}
+
+        {whatsappHref ? (
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="min-w-64 border-white/70 bg-transparent text-white hover:border-white hover:bg-white/15"
+          >
+            <a href={whatsappHref} target="_blank" rel="noreferrer">
+              <MessageCircle />
+              Mesaj pe WhatsApp
+            </a>
+          </Button>
+        ) : (
+          <Button
+            type="button"
+            variant="outline"
+            size="lg"
+            disabled
+            className="min-w-64 border-white/35 bg-transparent text-white"
+            aria-label={siteConfig.placeholders.whatsapp}
+          >
+            <MessageCircle />
+            WhatsApp
+          </Button>
+        )}
       </div>
     </section>
-  );
-}
-
-interface ContactLineProps {
-  icon: LucideIcon;
-  label: string;
-  children: React.ReactNode;
-}
-
-function ContactLine({ icon: Icon, label, children }: ContactLineProps) {
-  return (
-    <div className="flex gap-3 rounded-md border border-white/10 bg-black/25 p-4">
-      <Icon className="mt-0.5 h-5 w-5 shrink-0 text-brand-yellow" aria-hidden />
-      <div>
-        <p className="text-xs font-bold uppercase text-white/[0.52]">{label}</p>
-        <p className="mt-1 text-sm leading-6 text-white/[0.78]">{children}</p>
-      </div>
-    </div>
   );
 }

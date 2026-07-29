@@ -41,7 +41,7 @@ export function ProjectTypes() {
                   className="h-full w-full object-cover opacity-[0.76] transition duration-300 group-hover:scale-[1.03]"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/[0.38] to-brand-yellow/10" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/[0.38] to-brand-green/10" aria-hidden="true" />
                 <figcaption className="absolute inset-x-0 bottom-0 p-5">
                   <h3 className="font-display text-3xl font-extrabold leading-none">{project.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-white/[0.76]">{project.description}</p>

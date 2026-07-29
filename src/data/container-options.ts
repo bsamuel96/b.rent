@@ -1,5 +1,5 @@
 export type ProjectOptionId = "mic" | "mediu" | "mare" | "santier";
-export type ContainerCapacity = 3 | 5 | 7 | 10;
+export type ContainerCapacity = 7 | 10;
 
 export interface ProjectOption {
   id: ProjectOptionId;
@@ -26,17 +26,17 @@ export interface EstimatorSelection {
 export const projectOptions = [
   {
     id: "mic",
-    label: "Mic",
+    label: "Mică",
     summaryLabel: "Proiect mic",
     description: "Debarasare, balcon, baie sau renovare ușoară",
-    recommendedCapacity: 3,
+    recommendedCapacity: 7,
   },
   {
     id: "mediu",
     label: "Mediu",
     summaryLabel: "Proiect mediu",
     description: "Apartament, acoperiș sau renovare parțială",
-    recommendedCapacity: 5,
+    recommendedCapacity: 7,
   },
   {
     id: "mare",
@@ -56,27 +56,15 @@ export const projectOptions = [
 
 export const capacityOptions = [
   {
-    value: 3,
-    label: "3 m³",
-    imageSrc: "/images/containers/container-3m3.svg",
-    imageAlt: "Container skip compact de 3 metri cubi",
-  },
-  {
-    value: 5,
-    label: "5 m³",
-    imageSrc: "/images/containers/container-5m3.svg",
-    imageAlt: "Container skip mediu de 5 metri cubi",
-  },
-  {
     value: 7,
     label: "7 m³",
-    imageSrc: "/images/containers/container-7m3.svg",
+    imageSrc: "/figma/hero-waste-bin-green.png",
     imageAlt: "Container skip mare de 7 metri cubi",
   },
   {
     value: 10,
     label: "10 m³",
-    imageSrc: "/images/containers/container-10m3.svg",
+    imageSrc: "/figma/hero-waste-bin-green.png",
     imageAlt: "Container skip de șantier de 10 metri cubi",
   },
 ] as const satisfies readonly CapacityOption[];

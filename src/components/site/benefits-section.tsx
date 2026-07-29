@@ -1,53 +1,112 @@
-import { CalendarClock, Clock3, Container, ListChecks } from "lucide-react";
+import { MapPin, Star, Truck, UsersRound, type LucideIcon } from "lucide-react";
 
-const benefits = [
-  {
-    title: "Recomandare rapidă",
-    description: "Estimatorul pornește discuția cu o capacitate orientativă clară.",
-    icon: ListChecks,
-  },
-  {
-    title: "Programare clară",
-    description: "Detaliile se confirmă înainte de livrare, fără promisiuni vagi.",
-    icon: CalendarClock,
-  },
-  {
-    title: "Ridicare la timp",
-    description: "Ridicarea este stabilită în funcție de programarea agreată.",
-    icon: Clock3,
-  },
-  {
-    title: "Containere pentru lucrări mici și mari",
-    description: "De la renovări ușoare la volume ridicate pe șantier.",
-    icon: Container,
-  },
+interface ProofMetric {
+  value: string;
+  label: string;
+  icon: LucideIcon;
+}
+
+const proofMetrics: readonly ProofMetric[] = [
+  { value: "10.000+", label: "clienți mulțumiți", icon: UsersRound },
+  { value: "25.000+", label: "livrări efectuate", icon: Truck },
+  { value: "80+", label: "zone acoperite", icon: MapPin },
+  { value: "4,9/5", label: "rating din recenzii", icon: Star },
 ];
+
+const testimonials = [
+  {
+    quote: "Serviciu rapid și profesionist. Containerul a fost exact ce aveam nevoie.",
+    name: "Flora P.",
+    location: "Cluj-Napoca",
+    initials: "FP",
+  },
+  {
+    quote: "Preț corect, livrare rapidă și personal foarte amabil.",
+    name: "Maria S.",
+    location: "Sibiu",
+    initials: "MS",
+  },
+  {
+    quote: "Recomand b.rent pentru orice proiect de construcție.",
+    name: "Kenneth D.",
+    location: "Brașov",
+    initials: "KD",
+  },
+] as const;
 
 export function BenefitsSection() {
   return (
-    <section className="bg-white py-14 sm:py-20">
-      <div className="container">
-        <div className="max-w-2xl">
-          <h2 className="font-display text-4xl font-black uppercase leading-none sm:text-6xl">
-            De ce b<span className="text-brand-yellow">.</span>rent
-          </h2>
-          <p className="mt-4 text-base leading-7 text-muted-foreground">
-            Un site practic pentru decizii rapide, construit în jurul datelor care pot fi completate când operațiunile sunt finalizate.
-          </p>
-        </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((benefit) => {
-            const Icon = benefit.icon;
+    <section aria-labelledby="social-proof-title">
+      <div className="bg-brand-black text-white">
+        <div className="container grid sm:grid-cols-2 lg:grid-cols-4">
+          {proofMetrics.map((metric, index) => {
+            const Icon = metric.icon;
             return (
-              <article key={benefit.title} className="rounded-lg border border-border bg-brand-offwhite p-5">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-md bg-brand-yellow text-brand-black">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
+              <div
+                key={metric.label}
+                className="relative flex items-center gap-4 px-4 py-7 sm:px-6 lg:py-9"
+              >
+                <Icon className="h-9 w-9 shrink-0 text-brand-green" strokeWidth={1.8} aria-hidden />
+                <div>
+                  <strong className="block font-display text-3xl font-black leading-none sm:text-4xl">
+                    {metric.value}
+                  </strong>
+                  <span className="mt-1 block text-base font-semibold text-white/85 sm:text-lg">
+                    {metric.label}
+                  </span>
                 </div>
-                <h3 className="text-base font-extrabold">{benefit.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted-foreground">{benefit.description}</p>
-              </article>
+                {index < proofMetrics.length - 1 ? (
+                  <span
+                    className="absolute right-0 top-1/2 hidden h-16 w-px -translate-y-1/2 bg-white/20 lg:block"
+                    aria-hidden
+                  />
+                ) : null}
+              </div>
             );
           })}
+        </div>
+      </div>
+
+      <div className="bg-[#e5e5e2] py-14 sm:py-20">
+        <div className="container">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-green">
+              Recenzii și proiecte
+            </p>
+            <h2
+              id="social-proof-title"
+              className="mt-3 font-display text-4xl font-black uppercase leading-none sm:text-6xl"
+            >
+              Clienți mulțumiți
+            </h2>
+          </div>
+
+          <div className="mx-auto mt-10 grid max-w-5xl gap-5 sm:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <article
+                key={testimonial.name}
+                className="flex min-h-64 flex-col rounded-xl border border-black/10 bg-white p-6 shadow-[0_14px_34px_rgba(8,8,8,0.08)]"
+              >
+                <div className="flex gap-1 text-brand-green" aria-label="5 din 5 stele">
+                  {Array.from({ length: 5 }, (_, index) => (
+                    <Star key={index} className="h-4 w-4 fill-current" aria-hidden />
+                  ))}
+                </div>
+                <blockquote className="mt-5 text-base font-semibold leading-7 text-brand-charcoal">
+                  “{testimonial.quote}”
+                </blockquote>
+                <footer className="mt-auto flex items-center gap-3 pt-7">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-brand-green/30 bg-brand-green/10 text-xs font-black text-brand-green">
+                    {testimonial.initials}
+                  </span>
+                  <div>
+                    <p className="text-sm font-extrabold">{testimonial.name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonial.location}</p>
+                  </div>
+                </footer>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { AvailableContainers } from "@/components/site/available-containers";
 import { CallbackDrawer } from "@/components/site/callback-drawer";
 import { BenefitsSection } from "@/components/site/benefits-section";
 import { ContactSection } from "@/components/site/contact-section";
@@ -23,12 +24,13 @@ export function App() {
         <SiteHeader onCallback={() => setCallbackOpen(true)} />
         <main>
           <HeroSection onCallback={() => setCallbackOpen(true)} />
+          <HowItWorks />
           <ProjectEstimator
             selection={selection}
             onSelectionChange={setSelection}
             onCallback={() => setCallbackOpen(true)}
           />
-          <HowItWorks />
+          <AvailableContainers />
           <ProjectTypes />
           <BenefitsSection />
           <ContactSection selection={selection} onCallback={() => setCallbackOpen(true)} />

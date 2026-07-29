@@ -29,7 +29,7 @@ export function ContactActions({ selection, onCallback, compact = false, classNa
           asChild
           size={compact ? "default" : "lg"}
           variant="outline"
-          className="w-full border-brand-yellow bg-white/90 text-foreground hover:bg-brand-yellow/15 sm:w-auto"
+          className="w-full border-brand-green bg-white/90 text-foreground hover:bg-brand-green/15 sm:w-auto"
         >
           <a href={whatsappHref} target="_blank" rel="noreferrer">
             <MessageCircle />

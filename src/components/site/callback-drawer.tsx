@@ -195,7 +195,7 @@ export function CallbackDrawer({ open, onOpenChange, selection }: CallbackDrawer
             <label className="flex min-h-11 items-start gap-3 rounded-md border border-border bg-white p-3 text-sm font-medium leading-5">
               <input
                 type="checkbox"
-                className="mt-1 h-4 w-4 accent-brand-yellow"
+                className="mt-1 h-4 w-4 accent-brand-green"
                 checked={values.consent}
                 onChange={updateValue("consent")}
                 aria-invalid={Boolean(errors.consent)}
@@ -216,7 +216,7 @@ export function CallbackDrawer({ open, onOpenChange, selection }: CallbackDrawer
                 "rounded-lg border p-4 text-sm leading-6",
                 submission.status === "error"
                   ? "border-destructive/40 bg-destructive/10 text-destructive"
-                  : "border-brand-yellow/50 bg-primary/10 text-foreground",
+                  : "border-brand-green/50 bg-primary/10 text-foreground",
               )}
               aria-live="polite"
             >

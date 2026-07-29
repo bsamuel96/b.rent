@@ -35,10 +35,10 @@ export function SiteHeader({ onCallback }: SiteHeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/45 bg-[linear-gradient(135deg,rgba(255,255,255,0.78),rgba(255,255,255,0.42)_54%,rgba(242,183,5,0.16))] shadow-[0_18px_60px_rgba(8,8,8,0.18)] ring-1 ring-white/25 backdrop-blur-2xl backdrop-saturate-[1.8]">
+    <header className="sticky top-0 z-50 border-b border-white/45 bg-[linear-gradient(135deg,rgba(255,255,255,0.78),rgba(255,255,255,0.42)_54%,rgba(79,143,70,0.16))] shadow-[0_18px_60px_rgba(8,8,8,0.18)] ring-1 ring-white/25 backdrop-blur-2xl backdrop-saturate-[1.8]">
       <div className="container flex min-h-16 items-center justify-between gap-3 py-2">
         <a href="#" className="inline-flex items-center" aria-label="b.rent pagina principală">
-          <BrandLogo variant="light" className="max-w-[6.7rem]" />
+          <BrandLogo variant="light" className="max-w-[4.4rem]" />
         </a>
 
         <nav className="hidden items-center gap-5 text-sm font-semibold text-brand-charcoal lg:flex" aria-label="Navigație principală">

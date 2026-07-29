@@ -12,19 +12,19 @@
     --card-foreground: 0 0% 3%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3%;
-    --primary: 45 96% 48%;
-    --primary-foreground: 0 0% 3%;
+    --primary: 113 34% 42%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 13%;
     --secondary-foreground: 0 0% 98%;
     --muted: 60 7% 89%;
     --muted-foreground: 211 9% 40%;
-    --accent: 45 96% 48%;
+    --accent: 113 34% 42%;
     --accent-foreground: 0 0% 3%;
     --destructive: 0 84% 52%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 85%;
     --input: 0 0% 87%;
-    --ring: 45 96% 48%;
+    --ring: 113 34% 42%;
     --radius: 0.5rem;
   }
 
@@ -43,12 +43,12 @@
   }
 
   ::selection {
-    background: rgba(242, 183, 5, 0.34);
+    background: rgba(79, 143, 70, 0.34);
     color: #080808;
   }
 
   :focus-visible {
-    outline: 2px solid #f2b705;
+    outline: 2px solid #4f8f46;
     outline-offset: 3px;
   }
 }
@@ -68,7 +68,7 @@
 
   .touch-glow::before {
     background:
-      radial-gradient(circle at var(--touch-x) var(--touch-y), rgba(242, 183, 5, 0.22), transparent 34%),
+      radial-gradient(circle at var(--touch-x) var(--touch-y), rgba(79, 143, 70, 0.22), transparent 34%),
       linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(247, 247, 245, 0.38));
     content: "";
     inset: 0;
@@ -79,9 +79,8 @@
     z-index: -1;
   }
 
-  .touch-glow:hover::before,
-  .touch-glow:focus-within::before,
-  .touch-glow[data-selected="true"]::before {
+  .touch-glow:not([data-selected="true"]):hover::before,
+  .touch-glow:not([data-selected="true"]):focus-within::before {
     opacity: 1;
   }
 

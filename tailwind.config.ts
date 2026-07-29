@@ -47,7 +47,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
-          yellow: "#F2B705",
+          green: "#4F8F46",
           charcoal: "#222222",
           black: "#080808",
           steel: "#5D6670",
@@ -65,7 +65,7 @@ const config = {
       },
       boxShadow: {
         industrial: "0 18px 60px rgba(8, 8, 8, 0.16)",
-        "yellow-glow": "0 0 0 1px rgba(242, 183, 5, 0.32), 0 18px 42px rgba(242, 183, 5, 0.18)",
+        "green-glow": "0 0 0 1px rgba(79, 143, 70, 0.32), 0 18px 42px rgba(79, 143, 70, 0.18)",
       },
       keyframes: {
         moveHorizontal: {
