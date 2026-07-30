@@ -14,7 +14,6 @@ const footerLinks = [
 export function SiteFooter() {
   const currentYear = new Date().getFullYear();
   const defaultSelection = getInitialEstimatorSelection();
-  const telHref = createTelHref(siteConfig.contact.phoneE164);
   const mailtoHref = createMailtoHref(siteConfig.contact.email, {
     projectLabel: defaultSelection.projectLabel,
     capacity: defaultSelection.capacity,
@@ -77,15 +76,16 @@ export function SiteFooter() {
             </p>
 
             <div className="mt-6 grid gap-3 text-sm">
-              {telHref && siteConfig.contact.phoneDisplay ? (
+              {siteConfig.businessPhones.map((phone) => (
                 <a
-                  href={telHref}
+                  key={phone.phoneE164}
+                  href={createTelHref(phone.phoneE164) ?? undefined}
                   className="inline-flex w-fit items-center gap-3 font-semibold text-white transition-colors hover:text-brand-green"
                 >
                   <PhoneCall className="h-4 w-4 text-brand-green" aria-hidden />
-                  {siteConfig.contact.phoneDisplay}
+                  {phone.display}
                 </a>
-              ) : null}
+              ))}
               {mailtoHref && siteConfig.contact.email ? (
                 <a
                   href={mailtoHref}
@@ -101,26 +101,72 @@ export function SiteFooter() {
                   {siteConfig.contact.serviceArea}
                 </p>
               ) : null}
-              {!telHref && !mailtoHref ? (
-                <a
-                  href="#contact"
-                  className="inline-flex w-fit items-center gap-2 border-b border-brand-green pb-1 font-bold text-white transition-colors hover:text-brand-green"
-                >
-                  Solicită să fii contactat
-                  <ArrowUpRight className="h-4 w-4" aria-hidden />
-                </a>
-              ) : null}
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 pt-6 text-xs font-medium text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <section className="border-b border-white/15 py-8" aria-labelledby="consumer-protection-title">
+          <h2
+            id="consumer-protection-title"
+            className="font-display text-lg font-black uppercase tracking-[0.12em] text-white"
+          >
+            Protecția consumatorului
+          </h2>
+          <div className="mt-5 grid max-w-3xl gap-3 sm:grid-cols-2">
+            <a
+              href={siteConfig.compliance.sal.href}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-2xl transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+              aria-label="Detalii despre Soluționarea Alternativă a Litigiilor — ANPC"
+            >
+              <img
+                src={siteConfig.compliance.sal.imageSrc}
+                alt="ANPC — Soluționarea Alternativă a Litigiilor"
+                width="530"
+                height="136"
+                loading="lazy"
+                className="h-auto w-full rounded-2xl"
+              />
+            </a>
+            <a
+              href={siteConfig.compliance.sol.href}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-2xl transition-transform hover:-translate-y-0.5 focus-visible:-translate-y-0.5"
+              aria-label="Informații europene despre soluționarea litigiilor consumatorilor"
+            >
+              <img
+                src={siteConfig.compliance.sol.imageSrc}
+                alt="Soluționarea Online a Litigiilor"
+                width="516"
+                height="144"
+                loading="lazy"
+                className="h-auto w-full rounded-2xl"
+              />
+            </a>
+          </div>
+        </section>
+
+        <div className="flex flex-col gap-3 pr-14 pt-6 text-xs font-medium text-white/45 md:flex-row md:flex-wrap md:items-center md:justify-between md:pr-20">
           <p>
             © {currentYear} {siteConfig.brandName}. Toate drepturile rezervate.
           </p>
           <p className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-brand-green" aria-hidden />
             7 m³ și 10 m³ · livrare și ridicare programată
+          </p>
+          <p>
+            Made by{" "}
+            <a
+              href={siteConfig.credits.agencyUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="font-bold text-white/70 transition-colors hover:text-brand-green"
+            >
+              {siteConfig.credits.agencyDomain}
+            </a>{" "}
+            — {siteConfig.credits.agencyName}
           </p>
         </div>
       </div>

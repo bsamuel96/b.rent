@@ -10,6 +10,7 @@ import { ProjectEstimator } from "@/components/site/project-estimator";
 import { ProjectTypes } from "@/components/site/project-types";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
+import { WhatsAppAssistant } from "@/components/site/whatsapp-assistant";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { getInitialEstimatorSelection, type EstimatorSelection } from "@/data/container-options";
@@ -37,6 +38,7 @@ export function App() {
         </main>
         <SiteFooter />
         <MobileContactBar selection={selection} onCallback={() => setCallbackOpen(true)} />
+        <WhatsAppAssistant selection={selection} />
         <CallbackDrawer open={callbackOpen} onOpenChange={setCallbackOpen} selection={selection} />
       </div>
       <Toaster />
