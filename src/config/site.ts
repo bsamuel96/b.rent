@@ -54,6 +54,11 @@ export const siteConfig = {
       imageSrc: "/figma/sol%20n%20apnc/sol.png",
     },
   },
+  social: {
+    facebook: "https://www.facebook.com/profile.php?id=61592897452715",
+    instagram: "https://www.instagram.com/brentromania/",
+    tiktok: "https://www.tiktok.com/@brentromania",
+  },
   credits: {
     agencyName: "Digital Romanian SRL",
     agencyUrl: "https://digitalromanian.com",

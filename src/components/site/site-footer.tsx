@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, MapPin, PhoneCall } from "lucide-react";
+import { ArrowUpRight, Facebook, Instagram, Mail, MapPin, PhoneCall } from "lucide-react";
 import { BrandLogo } from "@/components/site/brand-logo";
 import { siteConfig } from "@/config/site";
 import { createMailtoHref, createTelHref } from "@/lib/contact-links";
@@ -9,6 +9,25 @@ const footerLinks = [
   { href: "#cum-functioneaza", label: "Cum funcționează" },
   { href: "#proiecte", label: "Proiecte" },
   { href: "#contact", label: "Contact" },
+];
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden
+    >
+      <path d="M19.32 5.56a5.12 5.12 0 0 1-3.41-1.27A5.12 5.12 0 0 1 14.39.93H11.3v14.7a2.76 2.76 0 1 1-2.76-2.76c.29 0 .57.05.83.13V9.86a5.84 5.84 0 1 0 5.02 5.78V8.18a8.17 8.17 0 0 0 4.93 1.65V5.56Z" />
+    </svg>
+  );
+}
+
+const socialLinks = [
+  { href: siteConfig.social.facebook, label: "Facebook", icon: Facebook },
+  { href: siteConfig.social.instagram, label: "Instagram", icon: Instagram },
+  { href: siteConfig.social.tiktok, label: "TikTok", icon: TikTokIcon },
 ];
 
 export function SiteFooter() {
@@ -43,6 +62,30 @@ export function SiteFooter() {
               Calculează containerul
               <ArrowUpRight className="h-4 w-4" aria-hidden />
             </a>
+
+            <div className="mt-7">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/55">
+                Urmărește-ne
+              </p>
+              <div className="mt-3 flex items-center gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Urmărește b.rent pe ${social.label}`}
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/75 transition-colors hover:border-brand-green hover:bg-brand-green hover:text-white"
+                    >
+                      <Icon className="h-5 w-5" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           <div>
