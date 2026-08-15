@@ -29,10 +29,11 @@ export function WhatsAppAssistant({ selection }: WhatsAppAssistantProps) {
   const [isPromptVisible, setIsPromptVisible] = React.useState(false);
   const hasPromptedRef = React.useRef(false);
   const contactSelection = selectionToContactSelection(selection);
-  const launcherHref = createWhatsAppHref(
-    siteConfig.businessPhones[0].whatsappE164,
-    contactSelection,
-  );
+
+  const togglePrompt = () => {
+    hasPromptedRef.current = true;
+    setIsPromptVisible((isVisible) => !isVisible);
+  };
 
   React.useEffect(() => {
     let inactivityTimer = 0;
@@ -44,6 +45,10 @@ export function WhatsAppAssistant({ selection }: WhatsAppAssistantProps) {
 
       window.clearTimeout(inactivityTimer);
       inactivityTimer = window.setTimeout(() => {
+        if (hasPromptedRef.current) {
+          return;
+        }
+
         hasPromptedRef.current = true;
         setIsPromptVisible(true);
       }, INACTIVITY_DELAY_MS);
@@ -116,19 +121,20 @@ export function WhatsAppAssistant({ selection }: WhatsAppAssistantProps) {
         </div>
       ) : null}
 
-      <a
-        href={launcherHref ?? undefined}
-        target="_blank"
-        rel="noreferrer"
+      <button
+        type="button"
+        onClick={togglePrompt}
         className="relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-green text-white shadow-[0_12px_30px_rgba(79,143,70,0.42)] transition-transform hover:scale-105 hover:bg-[#447c3d] active:scale-95"
-        aria-label={`Scrie pe WhatsApp la ${siteConfig.businessPhones[0].display}`}
+        aria-label={isPromptVisible ? "Închide opțiunile WhatsApp" : "Alege un număr pentru WhatsApp"}
+        aria-expanded={isPromptVisible}
+        aria-controls="whatsapp-assistant-panel"
       >
         <WhatsAppIcon className="h-7 w-7" />
         <span
           className="absolute right-0 top-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#25D366]"
           aria-hidden
         />
-      </a>
+      </button>
     </aside>
   );
 }
