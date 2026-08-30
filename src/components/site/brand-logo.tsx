@@ -14,6 +14,8 @@ export function BrandLogo({ variant, className }: BrandLogoProps) {
     <img
       src={src}
       alt={siteConfig.logoAlt}
+      width="512"
+      height="512"
       className={cn("h-auto w-full max-w-[9.5rem] object-contain", className)}
       loading="eager"
       decoding="async"

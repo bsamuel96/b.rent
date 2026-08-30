@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Mail, Send, X } from "lucide-react";
+import { LoaderCircle, Mail, Send, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -101,9 +101,18 @@ export function CallbackDrawer({ open, onOpenChange, selection }: CallbackDrawer
     };
 
     setIsSubmitting(true);
-    const result = await submitCallbackRequest(payload);
-    setSubmission(result);
-    setIsSubmitting(false);
+    try {
+      const result = await submitCallbackRequest(payload);
+
+      if (result.status === "posted") {
+        window.location.assign("/multumim/");
+        return;
+      }
+
+      setSubmission(result);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -125,7 +134,12 @@ export function CallbackDrawer({ open, onOpenChange, selection }: CallbackDrawer
           </div>
         </DrawerHeader>
 
-        <form className="grid gap-4 overflow-y-auto px-5 pb-3" onSubmit={handleSubmit} noValidate>
+        <form
+          className="grid gap-4 overflow-y-auto px-5 pb-3"
+          onSubmit={handleSubmit}
+          noValidate
+          aria-busy={isSubmitting}
+        >
           <div className="grid gap-2">
             <Label htmlFor="callback-name">Nume</Label>
             <Input
@@ -234,8 +248,8 @@ export function CallbackDrawer({ open, onOpenChange, selection }: CallbackDrawer
 
           <DrawerFooter className="px-0">
             <Button type="submit" disabled={isSubmitting}>
-              <Send />
-              {isSubmitting ? "Se verifică..." : "Trimite solicitarea"}
+              {isSubmitting ? <LoaderCircle className="animate-spin" /> : <Send />}
+              {isSubmitting ? "Se trimite..." : "Trimite solicitarea"}
             </Button>
           </DrawerFooter>
         </form>

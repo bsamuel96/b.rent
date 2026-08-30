@@ -42,8 +42,12 @@ export function HeroSection({ onCallback }: HeroSectionProps) {
   return (
     <section className="relative isolate overflow-hidden bg-brand-black text-white">
       <img
-        src="/figma/constructed-hero-tall.png"
+        src="/figma/constructed-hero-tall-1200.webp"
+        srcSet="/figma/constructed-hero-tall-1200.webp 1200w, /figma/constructed-hero-tall-1800.webp 1800w"
+        sizes="(min-width: 1024px) 60vw, 100vw"
         alt=""
+        width="1200"
+        height="1800"
         className="absolute inset-y-0 right-0 -z-30 h-full w-full object-cover object-[62%_bottom] sm:object-[58%_bottom] lg:w-[60%] lg:object-bottom lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_22%,black_100%)] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_22%,black_100%)] xl:-right-[5%] xl:w-[55%]"
         loading="eager"
         decoding="async"

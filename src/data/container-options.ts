@@ -58,13 +58,13 @@ export const capacityOptions = [
   {
     value: 7,
     label: "7 m³",
-    imageSrc: "/figma/hero-waste-bin-green.png",
+    imageSrc: "/figma/hero-waste-bin-green.webp",
     imageAlt: "Container skip mare de 7 metri cubi",
   },
   {
     value: 10,
     label: "10 m³",
-    imageSrc: "/figma/hero-waste-bin-green.png",
+    imageSrc: "/figma/hero-waste-bin-green.webp",
     imageAlt: "Container skip de șantier de 10 metri cubi",
   },
 ] as const satisfies readonly CapacityOption[];

@@ -1,14 +1,24 @@
-import { ArrowUpRight, Facebook, Instagram, Mail, MapPin, PhoneCall } from "lucide-react";
+import { ArrowUpRight, Facebook, Instagram, Mail, MapPin, PhoneCall, Settings2 } from "lucide-react";
 import { BrandLogo } from "@/components/site/brand-logo";
 import { siteConfig } from "@/config/site";
 import { createMailtoHref, createTelHref } from "@/lib/contact-links";
 import { getInitialEstimatorSelection } from "@/data/container-options";
 
 const footerLinks = [
-  { href: "#calculator", label: "Estimator" },
-  { href: "#cum-functioneaza", label: "Cum funcționează" },
-  { href: "#proiecte", label: "Proiecte" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#calculator", label: "Estimator" },
+  { href: "/#cum-functioneaza", label: "Cum funcționează" },
+  { href: "/#proiecte", label: "Proiecte" },
+  { href: "/#contact", label: "Contact" },
+];
+
+const informationLinks = [
+  { href: "/date-legale/", label: "Date legale" },
+  {
+    href: "/politica-de-confidentialitate/",
+    label: "Politica de confidențialitate",
+  },
+  { href: "/termeni-si-conditii/", label: "Termeni și condiții" },
+  { href: "#protectia-consumatorului", label: "Protecția consumatorului" },
 ];
 
 function TikTokIcon({ className }: { className?: string }) {
@@ -30,7 +40,11 @@ const socialLinks = [
   { href: siteConfig.social.tiktok, label: "TikTok", icon: TikTokIcon },
 ];
 
-export function SiteFooter() {
+interface SiteFooterProps {
+  onCookieSettings: () => void;
+}
+
+export function SiteFooter({ onCookieSettings }: SiteFooterProps) {
   const currentYear = new Date().getFullYear();
   const defaultSelection = getInitialEstimatorSelection();
   const mailtoHref = createMailtoHref(siteConfig.contact.email, {
@@ -46,9 +60,9 @@ export function SiteFooter() {
       />
 
       <div className="container relative py-12 sm:py-14">
-        <div className="grid gap-10 border-b border-white/15 pb-11 lg:grid-cols-[1.25fr_0.7fr_1fr] lg:gap-16">
+        <div className="grid gap-10 border-b border-white/15 pb-11 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.62fr_0.88fr_1fr] lg:gap-10 xl:gap-14">
           <div>
-            <a href="#" className="inline-flex" aria-label="b.rent pagina principală">
+            <a href="/" className="inline-flex" aria-label="b.rent pagina principală">
               <BrandLogo variant="dark" className="max-w-[8rem]" />
             </a>
             <p className="mt-5 max-w-md text-base leading-7 text-white/65">
@@ -56,7 +70,7 @@ export function SiteFooter() {
               Alegem împreună capacitatea potrivită și programăm livrarea.
             </p>
             <a
-              href="#calculator"
+              href="/#calculator"
               className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-md bg-brand-green px-5 text-sm font-bold text-white transition-colors hover:bg-[#447c3d]"
             >
               Calculează containerul
@@ -107,6 +121,38 @@ export function SiteFooter() {
           </div>
 
           <div>
+            <h2 className="font-display text-lg font-black uppercase tracking-[0.12em] text-white">
+              Informații
+            </h2>
+            <nav className="mt-5 grid gap-3" aria-label="Pagini informative și legale">
+              {informationLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="group inline-flex w-fit items-center gap-2 text-sm font-semibold leading-5 text-white/65 transition-colors hover:text-white"
+                >
+                  <span
+                    className="h-px w-4 shrink-0 bg-brand-green transition-all group-hover:w-6"
+                    aria-hidden
+                  />
+                  {link.label}
+                </a>
+              ))}
+              <button
+                type="button"
+                onClick={onCookieSettings}
+                className="group inline-flex w-fit items-center gap-2 text-left text-sm font-semibold leading-5 text-white/65 transition-colors hover:text-white"
+              >
+                <span
+                  className="h-px w-4 shrink-0 bg-brand-green transition-all group-hover:w-6"
+                  aria-hidden
+                />
+                Preferințe cookie
+              </button>
+            </nav>
+          </div>
+
+          <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-green">
               Hai să discutăm
             </p>
@@ -148,7 +194,11 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <section className="border-b border-white/15 py-8" aria-labelledby="consumer-protection-title">
+        <section
+          id="protectia-consumatorului"
+          className="scroll-mt-20 border-b border-white/15 py-8"
+          aria-labelledby="consumer-protection-title"
+        >
           <h2
             id="consumer-protection-title"
             className="font-display text-lg font-black uppercase tracking-[0.12em] text-white"
@@ -191,7 +241,7 @@ export function SiteFooter() {
           </div>
         </section>
 
-        <div className="flex flex-col gap-3 pr-14 pt-6 text-xs font-medium text-white/45 md:flex-row md:flex-wrap md:items-center md:justify-between md:pr-20">
+        <div className="flex flex-col gap-4 pr-14 pt-6 text-xs font-medium text-white/45 md:flex-row md:flex-wrap md:items-center md:justify-between md:pr-20">
           <p>
             © {currentYear} {siteConfig.brandName}. Toate drepturile rezervate.
           </p>
@@ -211,6 +261,14 @@ export function SiteFooter() {
             </a>{" "}
             — {siteConfig.credits.agencyName}
           </p>
+          <button
+            type="button"
+            onClick={onCookieSettings}
+            className="inline-flex w-fit items-center gap-1.5 transition-colors hover:text-white"
+          >
+            <Settings2 className="h-3.5 w-3.5" aria-hidden />
+            Modifică preferințele cookie
+          </button>
         </div>
       </div>
     </footer>

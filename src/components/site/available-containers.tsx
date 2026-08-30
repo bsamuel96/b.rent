@@ -6,7 +6,7 @@ const availableContainers = [
     projectSize: "Proiecte mari",
     dimensions: "3,6 × 1,8 × 1,6 m",
     suitableFor: "Construcții, renovări ample, moloz și deșeuri diverse.",
-    imageSrc: "/figma/hero-waste-bin-green.png",
+    imageSrc: "/figma/hero-waste-bin-green.webp",
     imageAlt: "Container b.rent de 7 metri cubi",
     featured: true,
   },
@@ -15,7 +15,7 @@ const availableContainers = [
     projectSize: "Proiecte extra mari",
     dimensions: "4,0 × 2,0 × 1,8 m",
     suitableFor: "Șantiere mari, demolări și cantități ridicate de deșeuri.",
-    imageSrc: "/figma/hero-waste-bin-green.png",
+    imageSrc: "/figma/hero-waste-bin-green.webp",
     imageAlt: "Container b.rent de 10 metri cubi",
     featured: false,
   },
@@ -60,6 +60,8 @@ export function AvailableContainers() {
                 <img
                   src={container.imageSrc}
                   alt={container.imageAlt}
+                  width="1536"
+                  height="1024"
                   className="h-full w-full scale-110 object-contain"
                   loading="lazy"
                   decoding="async"

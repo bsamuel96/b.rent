@@ -2,19 +2,25 @@ const projectTypes = [
   {
     title: "Renovări",
     description: "Pentru lucrări interioare, apartamente și spații care trebuie eliberate rapid.",
-    image: "/images/renovari.jpg",
+    image: "/images/renovari.webp",
+    width: 1600,
+    height: 1060,
     alt: "Lucrări de renovare cu materiale de construcție",
   },
   {
     title: "Debarasări",
     description: "Pentru obiecte voluminoase, curți, beciuri, garaje sau spații comerciale.",
-    image: "/images/debarasari.jpg",
+    image: "/images/debarasari.webp",
+    width: 1600,
+    height: 1067,
     alt: "Șantier exterior cu utilaje și materiale de lucru",
   },
   {
     title: "Construcții și demolări",
     description: "Pentru volum ridicat, lucrări grele și etape succesive pe șantier.",
-    image: "/images/constructii-demolari.jpg",
+    image: "/images/constructii-demolari.webp",
+    width: 1600,
+    height: 1067,
     alt: "Clădire în lucru pe un șantier de construcții",
   },
 ];
@@ -38,6 +44,8 @@ export function ProjectTypes() {
                 <img
                   src={project.image}
                   alt={project.alt}
+                  width={project.width}
+                  height={project.height}
                   className="h-full w-full object-cover opacity-[0.76] transition duration-300 group-hover:scale-[1.03]"
                   loading="lazy"
                 />
