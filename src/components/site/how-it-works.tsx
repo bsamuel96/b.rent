@@ -1,26 +1,26 @@
-import { CheckCircle2, ChevronRight, Container, House, Ruler } from "lucide-react";
+import { ChevronRight, Container, PhoneCall, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const steps = [
   {
-    title: "Alege tipul proiectului",
-    description: "Renovare, construcție, debarasare sau lucrări în grădină.",
-    icon: House,
+    title: "Ne suni",
+    description: "Ne spui unde ai nevoie de container și ce ai de evacuat.",
+    icon: PhoneCall,
   },
   {
-    title: "Primești recomandarea",
-    description: "Îți indicăm instant capacitatea potrivită pentru lucrarea ta.",
+    title: "Stabilim detaliile",
+    description: "Alegem capacitatea și stabilim prețul și locul livrării.",
     icon: Container,
   },
   {
-    title: "Confirmă capacitatea",
-    description: "Ajustezi dimensiunea și ne trimiți solicitarea când ești gata.",
-    icon: CheckCircle2,
+    title: "Livrăm în 24 de ore",
+    description: "Containerul ajunge în maximum 24 de ore de la apel. Tu îți continui treaba.",
+    icon: Truck,
   },
 ];
 
-const scrollToEstimator = () => {
-  document.getElementById("calculator")?.scrollIntoView({ behavior: "smooth", block: "start" });
+const scrollToContact = () => {
+  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
 export function HowItWorks() {
@@ -28,9 +28,9 @@ export function HowItWorks() {
     <section id="cum-functioneaza" className="scroll-mt-20 bg-muted/80 py-14 sm:py-20">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-green">Calculează rapid</p>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-green">Un apel. Ne ocupăm noi.</p>
           <h2 className="mt-4 text-balance font-display text-4xl font-black uppercase leading-[0.95] sm:text-6xl">
-            Alege containerul potrivit în 3 pași simpli
+            De la apel la container în 24 de ore
           </h2>
         </div>
 
@@ -75,10 +75,10 @@ export function HowItWorks() {
             type="button"
             size="lg"
             className="min-w-60 shadow-industrial"
-            onClick={scrollToEstimator}
+            onClick={scrollToContact}
           >
-            <Ruler className="text-white" />
-            Începe calculul
+            <PhoneCall className="text-white" aria-hidden />
+            Hai să vorbim
           </Button>
         </div>
       </div>

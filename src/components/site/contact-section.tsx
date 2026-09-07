@@ -29,10 +29,10 @@ export function ContactSection({ selection, onCallback }: ContactSectionProps) {
           </span>
           <div>
             <h2 className="font-display text-3xl font-black uppercase leading-none sm:text-4xl">
-              Ai nevoie de ajutor?
+              Afacerea ta nu așteaptă.
             </h2>
             <p className="mt-2 text-sm font-medium text-white/85 sm:text-base">
-              Sună-ne acum sau scrie-ne pe WhatsApp.
+              Sună acum. Livrăm în maximum 24 de ore de la apel.
             </p>
           </div>
         </div>

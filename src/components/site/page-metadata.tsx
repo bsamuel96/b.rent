@@ -11,9 +11,9 @@ interface Metadata {
 
 const metadataByRoute: Record<SiteRoute["kind"], Metadata> = {
   home: {
-    title: "Închirieri containere București–Ilfov | b.rent",
+    title: "Containere în 24 de ore de la apel | București–Ilfov | b.rent",
     description:
-      "Containere de 7 și 10 m³ pentru renovări, debarasări și șantiere. Estimează capacitatea și programează livrarea în București–Ilfov.",
+      "Container livrat în maximum 24 de ore de la apelul tău, în București–Ilfov. Containere de 7 și 10 m³. Sună acum. Afacerea ta nu așteaptă.",
     pathname: "/",
   },
   privacy: {

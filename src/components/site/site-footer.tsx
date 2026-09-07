@@ -67,7 +67,7 @@ export function SiteFooter({ onCookieSettings }: SiteFooterProps) {
             </a>
             <p className="mt-5 max-w-md text-base leading-7 text-white/65">
               Containere de 7 m³ și 10 m³ pentru renovări, debarasări și șantiere.
-              Alegem împreună capacitatea potrivită și programăm livrarea.
+              Livrăm în maximum 24 de ore de la apelul tău.
             </p>
             <a
               href="/#calculator"
@@ -247,7 +247,7 @@ export function SiteFooter({ onCookieSettings }: SiteFooterProps) {
           </p>
           <p className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-brand-green" aria-hidden />
-            7 m³ și 10 m³ · livrare și ridicare programată
+            7 m³ și 10 m³ · livrare în 24 de ore de la apel
           </p>
           <p>
             Made by{" "}
