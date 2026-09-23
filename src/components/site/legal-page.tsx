@@ -66,14 +66,15 @@ function PrivacyContent() {
       <p>
         Folosim datele pentru a răspunde solicitărilor, a pregăti sau executa serviciile cerute, a
         comunica detaliile livrării și a proteja site-ul. Analiza opțională a traficului se bazează pe
-        consimțământ și poate fi dezactivată oricând din „Preferințe cookie”.
+        consimțământ, la fel ca măsurarea reclamelor prin Meta Pixel, și poate fi dezactivată oricând din „Preferințe cookie”.
       </p>
 
       <h2>4. Destinatari și transferuri</h2>
       <p>
         Datele pot fi accesate de furnizorii necesari pentru găzduire, formular și comunicații, în
         limita serviciilor prestate. Dacă accepți analiza, date tehnice pot fi transmise furnizorului
-        de analiză configurat. Nu vindem date personale. Orice transfer în afara Spațiului Economic
+        de analiză configurat și către Meta Platforms Ireland Ltd., prin Meta Pixel, pentru măsurarea
+        reclamelor. Nu vindem date personale. Orice transfer în afara Spațiului Economic
         European se face prin mecanismele legale oferite de furnizorul respectiv.
       </p>
 
@@ -97,8 +98,8 @@ function PrivacyContent() {
 
       <h2>7. Cookie-uri și analiză</h2>
       <p>
-        Site-ul folosește stocare strict necesară pentru preferința de consimțământ. Instrumentul de
-        analiză este încărcat numai după acceptare. Poți reveni asupra alegerii din subsolul oricărei pagini.
+        Site-ul folosește stocare strict necesară pentru preferința de consimțământ. Instrumentele de
+        analiză și Meta Pixel (care setează cookie-uri precum _fbp) sunt încărcate numai după acceptare. Poți reveni asupra alegerii din subsolul oricărei pagini.
       </p>
 
       <h2>8. Actualizări</h2>

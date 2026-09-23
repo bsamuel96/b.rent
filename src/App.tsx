@@ -130,7 +130,7 @@ export function App() {
         <CallbackDrawer open={callbackOpen} onOpenChange={setCallbackOpen} selection={selection} />
         <CookieConsent
           open={cookiePanelOpen}
-          analyticsConfigured={Boolean(siteConfig.analytics.googleMeasurementId)}
+          analyticsConfigured={Boolean(siteConfig.analytics.googleMeasurementId || siteConfig.analytics.metaPixelId)}
           currentChoice={cookieChoice}
           onAccept={() => saveCookieChoice("accepted")}
           onReject={() => saveCookieChoice("rejected")}

@@ -59,8 +59,9 @@ export function CookieConsent({
           </div>
 
           <p id="cookie-consent-description" className="mt-3 text-sm leading-6 text-muted-foreground">
-            Folosim stocare strict necesară pentru a reține alegerea ta. Analizele de trafic sunt
-            activate numai dacă accepți{analyticsConfigured ? "." : " și după configurarea serviciului de analiză."}.
+            Folosim stocare strict necesară pentru a reține alegerea ta. Analiza traficului și măsurarea
+            reclamelor (Meta Pixel) sunt activate numai dacă accepți
+            {analyticsConfigured ? "." : " și după configurarea serviciului de analiză."}
             Detalii în{" "}
             <a className="font-semibold text-foreground underline underline-offset-4" href="/politica-de-confidentialitate/">
               politica de confidențialitate

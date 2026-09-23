@@ -62,6 +62,7 @@ export const siteConfig = {
   },
   analytics: {
     googleMeasurementId: nullableEnv(import.meta.env.VITE_GA_MEASUREMENT_ID),
+    metaPixelId: nullableEnv(import.meta.env.VITE_META_PIXEL_ID) ?? "1115630644488832",
   },
   businessPhones,
   compliance: {
